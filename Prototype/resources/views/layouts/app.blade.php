@@ -10,6 +10,7 @@
     <title>Prototypeだお</title>
 
     <!-- Scripts -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{mix('js/listmenu.js')}}" defer></script>
 

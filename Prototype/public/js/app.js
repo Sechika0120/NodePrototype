@@ -49861,6 +49861,7 @@ var main = document.getElementById("main");
 var gomi = document.getElementById("gomi");
 var brocknumber;
 var flag = false;
+var index;
 touchstring.addEventListener('click', function () {
   var brockc = document.createElement('div');
   brockc.style.width = "50px";
@@ -50088,6 +50089,11 @@ touchscroll.addEventListener('click', function () {
 });
 
 function ablemove(brock) {
+  $('li').on('click', function () {
+    index = $(brock).index(this);
+    alert(index);
+  });
+
   var _iterator = _createForOfIteratorHelper(brock),
       _step;
 
@@ -50169,8 +50175,8 @@ function ablemove(brock) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/okazakiryousuke/Desktop/laravel/Prototype/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/okazakiryousuke/Desktop/laravel/Prototype/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/okazakiryousuke/Desktop/prototypeclone/NodePrototype/Prototype/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/okazakiryousuke/Desktop/prototypeclone/NodePrototype/Prototype/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

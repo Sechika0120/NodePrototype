@@ -17,6 +17,7 @@ let main = document.getElementById("main");
 let gomi = document.getElementById("gomi");
 let brocknumber;
 let flag = false;
+let index;
 
     touchstring.addEventListener('click',()=>{
         let brockc = document.createElement('div')
@@ -276,24 +277,30 @@ let flag = false;
        
 
                 function ablemove(brock){
-                    
-                    for(let i of brock){
-                        i.style.position = "absolute";
-                        i.style.cursor = "pointer";
-                        i.style.zIndex = "2";
-                            i.onmousedown = function(event){
-                            document.addEventListener("mousemove",onMouseMove);
+
+                    $(brock).on('mouseover', function () {
+                        index = $(brock).index(this);
+                        brock[index].style.position = "absolute";
+                        brock[index].style.cursor = "pointer";
+                        brock[index].style.zIndex = "2";
+                        brock[index].ondragstart = function(e){
+                            
+                              return false;
+                            }
+                            brock[index].onmousedown = function(event){
+                                
+                                document.addEventListener("mousemove",onMouseMove);
                             }
                         
-                            i.onmouseup = function(event){
+                            brock[index].onmouseup = function(event){
                                 var x = event.clientX;
                                 var y = event.clientY;
-                                var width = i.offsetWidth;
-                                var height = i.offsetHeight;
+                                var width = brock[index].offsetWidth;
+                                var height = brock[index].offsetHeight;
                                 var gomibakoRect = gomi.getBoundingClientRect();
                                 if((x>=gomibakoRect.left && x<=(gomibakoRect.left+gomibakoRect.width)) && (y>=gomibakoRect.top && y<=(gomibakoRect.top+gomibakoRect.height))){
                                     gomi.style.backgroundColor = "white";
-                                    main.removeChild(i);
+                                    main.removeChild(brock[index]);
                                   }
                                 document.removeEventListener("mousemove",onMouseMove);
                             }
@@ -303,11 +310,10 @@ let flag = false;
                                 
                                 var x = event.clientX;
                                 var y = event.clientY;
-                                var width = i.offsetWidth;
-                                var height = i.offsetHeight;
-                                i.style.top = ((y-(height/2)*2-height*2)) + "px";
-                                i.style.left = ((x-(width/2)*2-width*11)) + "px";
-                                console.log("開始");
+                                var width = brock[index].offsetWidth;
+                                var height = brock[index].offsetHeight;
+                                brock[index].style.top = ((y-(height/2)*2-height*2)) + "px";
+                                brock[index].style.left = ((x-(width/2)*2-width*11)) + "px";
                                 var gomibakoRect = gomi.getBoundingClientRect();
                                 if((x>=gomibakoRect.left && x<=(gomibakoRect.left+gomibakoRect.width)) && (y>=gomibakoRect.top && y<=(gomibakoRect.top+gomibakoRect.height))){
                                     gomi.style.backgroundColor = "pink";
@@ -316,6 +322,11 @@ let flag = false;
                                     gomi.style.backgroundColor = "white";
                                   }
                             }
-                    }
+                    
                     flag = false;
+                      });
+                    
+                     
+                        
                 }
+
