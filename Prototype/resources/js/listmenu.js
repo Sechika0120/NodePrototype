@@ -18,7 +18,6 @@ let gomi = document.getElementById("gomi");
 let brocknumber;
 let flag = false;
 let index;
-const name;
 
     touchstring.addEventListener('click',()=>{
         let brockc = document.createElement('div')
