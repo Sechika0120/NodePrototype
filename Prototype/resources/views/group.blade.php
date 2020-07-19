@@ -10,7 +10,7 @@
                     <div class="alert alert-success" role="alert">
                             グループへようこそ！！
                         </div>
-                    こんにちは
+                   
 
 
                    
